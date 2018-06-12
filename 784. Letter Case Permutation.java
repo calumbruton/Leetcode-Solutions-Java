@@ -15,7 +15,6 @@ class Solution {
         }
 
         char c = S.charAt(idx);
-        System.out.println(c);
         
         if (Character.isLetter(c)){
             backtrack(S, ans + Character.toLowerCase(c), idx+1);
