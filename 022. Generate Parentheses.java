@@ -2,25 +2,25 @@ class Solution {
     public List<String> generateParenthesis(int n) {
         //Use backtracking
         ArrayList <String> ans = new ArrayList<String>();
-        backtrack(n, n*2, ans, "", 0);
+        backtrack(n, n*2, ans, new StringBuilder(), 0);
         return ans;
     }
     
-    public void backtrack(int n, int x, List<String> ans, String bracks, int open){
+    public void backtrack(int n, int x, List<String> ans, StringBuilder bracks, int open){
         //System.out.println(x + ": " + bracks);
         if (x==0){
             //System.out.println("yup: " + open);
             if (open == 0)
-                ans.add(bracks);
+                ans.add(bracks.toString());
             return;
         }
         //try a closing bracket
         if(open > 0){
             x--;
             open--;
-            bracks+=")";
+            bracks.append(")");
             backtrack(n, x, ans, bracks, open);
-            bracks = bracks.substring(0,bracks.length()-1);
+            bracks.setLength(bracks.length()-1);
             x++;
             open++;
         }
@@ -28,9 +28,9 @@ class Solution {
         if(open < x){
             x--;
             open++;
-            bracks+="(";
+            bracks.append("(");
             backtrack(n, x, ans, bracks, open);
-            bracks = bracks.substring(0,bracks.length()-1);
+            bracks.setLength(bracks.length()-1);
             x++;
             open--; 
         }
