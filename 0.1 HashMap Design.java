@@ -1,7 +1,6 @@
 public class MyHashMap {
       // for better re-sizing is taken as 2^4
       private static final int SIZE = 16;
-
       private Entry [] table = new Entry[SIZE];
 
       /**
