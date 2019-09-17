@@ -1,7 +1,5 @@
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-        if (cost.length <= 2) return Math.min(cost[0], cost[1]);
-        
         //Bottom up approach
         int s1 = cost[0];
         int s2 = cost[1];
